@@ -35,7 +35,7 @@ const SignUp = () => {
         setSuccess("")
         setFormData({ ...FormData, [event.target.name]: event.target.value })
         setErrors((errors) => ({ ...errors, [event.target.name]: "" }))
-        if (FormData.password === FormData.confirmpassword)
+        if (event.target.name==='password')
             setErrors((errors) => ({ ...errors, confirmpassword: "" }))
     }
     const handleSubmit = (event) => {
@@ -68,6 +68,13 @@ const SignUp = () => {
                 confirmpassword: ""
 
             })
+            setErrors({
+                fullName: "",
+                email: "",
+                password: "",
+                confirmpassword: ""
+
+            })
         }
         // if(!FormData.fullName || !FormData.email || !FormData.password || !FormData.confirmpassword){
         //     setError("Please fill all the fields")
@@ -89,7 +96,7 @@ const SignUp = () => {
             <NavBar />
             <h1 className="font-bold text-2xl text-blue-400">Join BlogVerse</h1>
             <p className="text-gray-500 text-xl text-center font-semibold">Create your Account <br /> start your journey with BlogVerse</p>
-            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-gray-400 rounded-2xl shadow-lg shadow-gray-500 hover:shadow-black w-1/3 py-7 items-center gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-gray-200 rounded-2xl shadow-lg shadow-gray-300 hover:shadow-black  w-[90%] lg:w-1/3 py-7 items-center gap-5">
                 <div className="w-[90%] flex flex-col gap-2">
                     <p className="text-md text-gray-700 font-semibold">Full Name</p>
                     <div className="relative">
@@ -141,7 +148,7 @@ const SignUp = () => {
                 </div>
 
                 <div className="flex gap-2 border-1 border-gray-800 w-[90%] p-3 items-center justify-center">
-                    <input required type="checkbox" className="h-5 w-5 cursor-pointer"></input>
+                    <input type="checkbox" className="h-5 w-5 cursor-pointer"></input>
                     <p>I agree to the terms and conditions</p>
                 </div>
                 {/* {error && <p className="text-red-400">{error}</p>} */}

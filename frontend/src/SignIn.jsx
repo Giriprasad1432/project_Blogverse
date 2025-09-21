@@ -14,7 +14,7 @@ const SignIn = () => {
     return (
         <div className="flex flex-col items-center gap-20">
             <NavBar />
-            <form className="flex flex-col w-1/4 gap-5 border-1 rounded-2xl px-5 py-5 bg-white border-gray-300 shadow-lg shadow-gray-400 items-center">
+            <form className="flex flex-col lg:w-1/3 w-[80%] gap-5 border-1 rounded-2xl px-5 py-5 bg-white border-gray-300 shadow-lg shadow-gray-400 items-center">
                 <div className="flex flex-col items-center">
                     <h className="font-bold text-2xl ">SignIn</h>
                     <p className="text-gray-600">Access your account</p>
@@ -39,7 +39,7 @@ const SignIn = () => {
                         <input type="checkbox" className=""></input>
                         <p className="font-semibold text-gray-700">Remember me</p>
                     </div>
-                    <a href="" alt="" className="font-semibold  text-blue-800 hover:underline">Forgot password?</a>
+                    <a href="" alt="" className="font-semibold text-xs md:text-lg text-blue-800 hover:underline">Forgot password?</a>
                 </div>
                 <button type="submit" className="border-1 font-bold bg-violet-800 rounded-2xl h-15 text-white px-5 py-2 w-[90%]">Sign In</button>
                 <p className="text-gray-500 font-semibold">Dont Have an account?  <Link to="/signup" className="text-purple-700 cursor-pointer hover:underline">Create one here</Link></p>
