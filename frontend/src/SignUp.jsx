@@ -7,7 +7,9 @@ import { Mail } from 'lucide-react';
 import { User } from 'lucide-react';
 import { EyeClosed } from 'lucide-react';
 import { useState } from "react"
-const SignUp = () => {
+const SignUp = () => {  
+    const [isLoading,setisLoading]=useState(false)
+    const [isModalOpen,setIsModalOpen]=useState(false)
     const [errors, setErrors] = useState({
         fullName: "",
         email: "",
@@ -35,7 +37,7 @@ const SignUp = () => {
         setSuccess("")
         setFormData({ ...FormData, [event.target.name]: event.target.value })
         setErrors((errors) => ({ ...errors, [event.target.name]: "" }))
-        if (event.target.name==='password')
+        if (event.target.name === 'password')
             setErrors((errors) => ({ ...errors, confirmpassword: "" }))
     }
     const handleSubmit = (event) => {
@@ -60,7 +62,10 @@ const SignUp = () => {
             setErrors(newErrors)
         }
         else {
-            setSuccess("account created successfully")
+            setisLoading(true)
+            setTimeout(()=>{
+                setisLoading(false              )
+                setSuccess("account created successfully")
             setFormData({
                 fullName: "",
                 email: "",
@@ -68,6 +73,7 @@ const SignUp = () => {
                 confirmpassword: ""
 
             })
+            setIsModalOpen(true)
             setErrors({
                 fullName: "",
                 email: "",
@@ -75,6 +81,8 @@ const SignUp = () => {
                 confirmpassword: ""
 
             })
+        },3000)
+        
         }
         // if(!FormData.fullName || !FormData.email || !FormData.password || !FormData.confirmpassword){
         //     setError("Please fill all the fields")
@@ -153,7 +161,7 @@ const SignUp = () => {
                 </div>
                 {/* {error && <p className="text-red-400">{error}</p>} */}
                 {success && <p className="text-green-400">{success}</p>}
-                <button type="submit" className="text-white border-1 bg-purple-500 font-semibold p-3 rounded-2xl cursor-pointer flex gap-3"><CircleUser />Create Account</button>
+                <button type="submit" className="text-white border-1 bg-purple-500 font-semibold p-3 rounded-2xl cursor-pointer flex gap-3"><CircleUser /><p>{isLoading ? "Creating.." : "Create account"}</p></button>
 
                 <div className="border-[0.5px] border-gray-500 w-[90%] mt-4"></div>
 
@@ -161,6 +169,14 @@ const SignUp = () => {
 
                 <Link to="/" className="hover:bg-gray-500 cursor-pointer py-4 px-3 text-center rounded-xl w-[90%]">Back to Home</Link>
             </form>
+            {isModalOpen && <div className="fixed border-1 border-red-500 flex justify-center items-center h-dvh w-dvw ">
+                <div className="w-dvw h-dvh bg-black opacity-50 absolute"></div>
+                <div className="border-1 px-3 py-3 bg-white rounded-2xl text-center relative z-10">
+                    <p className="mb-3 mt-2">Your account has been created successfully ✅</p>
+                    <Link to="/login" className="border-1 rounded px-2 py-0.5 bg-violet-500 text-white">Login</Link>
+                    <button to="/login" onClick={()=>setIsModalOpen(false)} className="absolute top-0 right-1 text-black cursor-pointer">x</button>
+                </div>
+            </div>}
         </div>
     )
 
