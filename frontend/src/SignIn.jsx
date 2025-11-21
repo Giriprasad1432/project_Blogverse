@@ -12,7 +12,7 @@ const SignIn = () => {
         setShowPassword((password) => !password)
     }
     return (
-        <div className="flex flex-col items-center gap-20">
+        <div className="flex flex-col items-center gap-20 h-screen">
             <NavBar />
             <form className="flex flex-col lg:w-1/3 w-[80%] gap-5 border-1 rounded-2xl px-5 py-5 bg-white border-gray-300 shadow-lg shadow-gray-400 items-center">
                 <div className="flex flex-col items-center">

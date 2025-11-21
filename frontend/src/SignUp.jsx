@@ -104,7 +104,7 @@ const SignUp = () => {
             <NavBar />
             <h1 className="font-bold text-2xl text-blue-400">Join BlogVerse</h1>
             <p className="text-gray-500 text-xl text-center font-semibold">Create your Account <br /> start your journey with BlogVerse</p>
-            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-gray-200 rounded-2xl shadow-lg shadow-gray-300 hover:shadow-black  w-[90%] lg:w-1/3 py-7 items-center gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col border-1 border-gray-600 rounded-2xl hover:shadow-black  w-[90%] lg:w-1/3 py-7 items-center gap-5">
                 <div className="w-[90%] flex flex-col gap-2">
                     <p className="text-md text-gray-700 font-semibold">Full Name</p>
                     <div className="relative">
